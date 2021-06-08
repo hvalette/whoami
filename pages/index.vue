@@ -1,13 +1,13 @@
 <template>
   <main class="container">
     <div class="dashboard">
-      <section class="angular card techno">
+      <section class="angular card techno fade-in">
         <figure class="logo">
           <img src="~/assets/images/angular.svg" alt="angular logo" />
         </figure>
         <span>Angular</span>
       </section>
-      <section class="tools card">
+      <section class="tools card fade-in delay-8">
         <span>Some tools I like : </span>
         <div class="icons">
           <a
@@ -52,39 +52,39 @@
           </a>
         </div>
       </section>
-      <section class="vuejs card techno">
+      <section class="vuejs card techno fade-in delay-2">
         <figure class="logo">
           <img src="~/assets/images/vuejs.svg" alt="vuejs logo" />
         </figure>
         <span>VueJS</span>
       </section>
-      <section class="jobs card"></section>
-      <section class="theme card">
+      <section class="jobs card fade-in delay-10"></section>
+      <section class="theme card fade-in delay-9">
         <div class="buble" @click="toggleDarkMode">
           <span v-if="isDarkMode" class="mdi mdi-lightbulb-on"></span>
           <span v-else class="mdi mdi-lightbulb"></span>
         </div>
       </section>
-      <section class="nestjs card techno">
+      <section class="nestjs card techno fade-in delay-1">
         <figure class="logo">
           <img src="~/assets/images/nestjs.svg" alt="nestjs logo" />
         </figure>
         <span>NestJS</span>
       </section>
-      <section class="firebase card techno">
+      <section class="firebase card techno fade-in delay-7">
         <figure class="logo">
           <img src="~/assets/images/firebase.svg" alt="firebase logo" />
         </figure>
         <span>Firebase</span>
       </section>
-      <section class="socials card"></section>
-      <section class="lang card"></section>
-      <section class="lego card techno">
+      <section class="socials card fade-in delay-4"></section>
+      <section class="lang card fade-in delay-3"></section>
+      <section class="lego card techno fade-in delay-6">
         <figure class="logo">
           <img src="~/assets/images/lego.png" alt="lego logo" />
         </figure>
       </section>
-      <section class="resume card">
+      <section class="resume card fade-in delay-5">
         <div class="header">
           <figure class="picture">
             <img
@@ -102,6 +102,9 @@
           <p></p>
           <p>I received my master's degree in computer science in 2018</p>
           <p>Since then I am working at Atos in Lille</p>
+        </div>
+        <div class="made-with">
+          <p>Made with ❤️ by me</p>
         </div>
       </section>
     </div>
@@ -166,6 +169,12 @@ export default Vue.extend({
   overflow: hidden;
 }
 
+.logo {
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
 img {
   height: 100%;
 }
@@ -196,15 +205,13 @@ img {
   }
   .icons {
     height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    gap: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
     .app-icon {
-      flex: 0 0 60px;
-      height: min(50%, 60px);
       padding: 0.6rem;
       display: flex;
       justify-content: center;
@@ -237,6 +244,7 @@ img {
 }
 .resume {
   grid-area: resume;
+  position: relative;
   .header {
     height: min(200px, 40%);
     background-color: #fbda61;
@@ -261,7 +269,15 @@ img {
   .content {
     padding: 2rem;
     font-size: 1.2rem;
-    line-height: 2;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  .made-with {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1em;
   }
 }
 .nestjs {
@@ -278,6 +294,42 @@ img {
 }
 .lego {
   grid-area: lego;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: 1000ms ease fade-in forwards;
+}
+
+.delay-1 {
+  animation-delay: 100ms;
+}
+.delay-2 {
+  animation-delay: 200ms;
+}
+.delay-3 {
+  animation-delay: 300ms;
+}
+.delay-4 {
+  animation-delay: 400ms;
+}
+.delay-5 {
+  animation-delay: 500ms;
+}
+.delay-6 {
+  animation-delay: 600ms;
+}
+.delay-7 {
+  animation-delay: 700ms;
+}
+.delay-8 {
+  animation-delay: 800ms;
+}
+.delay-9 {
+  animation-delay: 900ms;
+}
+.delay-10 {
+  animation-delay: 1000ms;
 }
 
 @media screen and (max-width: 768px) {
@@ -297,6 +349,15 @@ img {
         border-radius: 0;
       }
     }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>
