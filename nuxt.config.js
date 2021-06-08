@@ -31,9 +31,15 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     'nuxt-vite',
+    [
+      '@nuxtjs/google-fonts',
+      {
+        families: { Prompt: [300, 400, 500, 700] },
+        display: 'swap',
+      },
+    ],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
